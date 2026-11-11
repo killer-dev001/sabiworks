@@ -1,0 +1,178 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Sabi design system — African-modern.
+ * Palette: deep forest green, burnt orange, coral, golden yellow, warm cream,
+ * dark green-black ink. All colors in oklch. Semantic tokens only.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Sabi brand tokens */
+  --color-forest: var(--brand-forest);
+  --color-forest-deep: var(--brand-forest-deep);
+  --color-forest-soft: var(--brand-forest-soft);
+  --color-ember: var(--brand-ember);
+  --color-ember-deep: var(--brand-ember-deep);
+  --color-coral: var(--brand-coral);
+  --color-gold: var(--brand-gold);
+  --color-gold-soft: var(--brand-gold-soft);
+  --color-cream: var(--brand-cream);
+  --color-cream-deep: var(--brand-cream-deep);
+  --color-ink: var(--brand-ink);
+  --color-leaf: var(--brand-leaf);
+
+  --font-display: "Bricolage Grotesque", "DM Sans", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(20 46 34 / 0.06), 0 8px 24px -8px rgb(20 46 34 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(20 46 34 / 0.08), 0 16px 40px -12px rgb(20 46 34 / 0.22);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.975 0.017 85);
+  --foreground: oklch(0.25 0.045 158);
+  --card: oklch(0.993 0.006 88);
+  --card-foreground: oklch(0.25 0.045 158);
+  --popover: oklch(0.993 0.006 88);
+  --popover-foreground: oklch(0.25 0.045 158);
+  --primary: oklch(0.34 0.075 158);
+  --primary-foreground: oklch(0.975 0.017 85);
+  --secondary: oklch(0.93 0.028 140);
+  --secondary-foreground: oklch(0.3 0.06 158);
+  --muted: oklch(0.94 0.02 84);
+  --muted-foreground: oklch(0.46 0.04 155);
+  --accent: oklch(0.63 0.155 42);
+  --accent-foreground: oklch(0.975 0.017 85);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(0.9 0.02 84);
+  --input: oklch(0.9 0.02 84);
+  --ring: oklch(0.34 0.075 158);
+
+  --brand-forest: oklch(0.34 0.075 158);
+  --brand-forest-deep: oklch(0.26 0.06 160);
+  --brand-forest-soft: oklch(0.93 0.028 140);
+  --brand-ember: oklch(0.66 0.15 44);
+  --brand-ember-deep: oklch(0.56 0.14 40);
+  --brand-coral: oklch(0.72 0.13 30);
+  --brand-gold: oklch(0.82 0.125 84);
+  --brand-gold-soft: oklch(0.9 0.07 88);
+  --brand-cream: oklch(0.975 0.017 85);
+  --brand-cream-deep: oklch(0.945 0.025 84);
+  --brand-ink: oklch(0.25 0.045 158);
+  --brand-leaf: oklch(0.6 0.09 150);
+}
+
+.dark {
+  --background: oklch(0.22 0.04 158);
+  --foreground: oklch(0.95 0.02 85);
+  --card: oklch(0.27 0.045 158);
+  --card-foreground: oklch(0.95 0.02 85);
+  --popover: oklch(0.27 0.045 158);
+  --popover-foreground: oklch(0.95 0.02 85);
+  --primary: oklch(0.72 0.12 140);
+  --primary-foreground: oklch(0.22 0.04 158);
+  --secondary: oklch(0.32 0.05 158);
+  --secondary-foreground: oklch(0.95 0.02 85);
+  --muted: oklch(0.3 0.04 158);
+  --muted-foreground: oklch(0.72 0.03 130);
+  --accent: oklch(0.68 0.14 44);
+  --accent-foreground: oklch(0.2 0.03 158);
+  --destructive: oklch(0.65 0.18 27);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.72 0.12 140);
+
+  --brand-forest: oklch(0.72 0.12 140);
+  --brand-forest-deep: oklch(0.2 0.035 158);
+  --brand-forest-soft: oklch(0.32 0.05 158);
+  --brand-cream: oklch(0.24 0.04 158);
+  --brand-cream-deep: oklch(0.27 0.045 158);
+  --brand-ink: oklch(0.95 0.02 85);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Motifs and textures */
+
+@utility motif-dots {
+  background-image: radial-gradient(oklch(0.34 0.075 158 / 10%) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+@utility motif-grid {
+  background-image:
+    linear-gradient(oklch(0.34 0.075 158 / 6%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.34 0.075 158 / 6%) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@utility grain-panel {
+  background-color: var(--brand-forest-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+@utility leaf-blob {
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+}
+
+@utility arch-top {
+  border-radius: 999px 999px 24px 24px;
+}
