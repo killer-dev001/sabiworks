@@ -4,7 +4,6 @@ import { z } from "zod";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 import { useSession } from "@/lib/hooks";
 import { SabiLogo } from "@/components/sabi/logo";
 import { AuthDecor } from "@/components/sabi/public-chrome";
@@ -137,21 +136,19 @@ function AuthPage() {
     }
   }
 
-  async function handleSocial(provider: "google" | "apple") {
-    try {
-      const result = await lovable.auth.signInWithOAuth(provider, {
-        redirect_uri: window.location.origin,
-      });
-      if (result.error) {
-        toast.error(result.error.message ?? "Could not start sign-in. Please try again.");
-        return;
-      }
-      if (result.redirected) return;
-      navigate({ to: "/workspace", replace: true });
-    } catch {
-      toast.error("Could not start sign-in. Please try again.");
+async function handleSocial(provider: "google" | "apple") {
+  try {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: `${window.location.origin}/workspace` },
+    });
+    if (error) {
+      toast.error(error.message ?? "Could not start sign-in. Please try again.");
     }
+  } catch {
+    toast.error("Could not start sign-in. Please try again.");
   }
+}
 
   const isSignup = mode === "signup";
 

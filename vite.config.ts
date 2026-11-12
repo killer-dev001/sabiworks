@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
-// Standalone config for Netlify. The Lovable wrapper (@lovable.dev/vite-tanstack-config)
+// Standalone Vite config for Netlify.
 // is removed because it builds for Cloudflare via Nitro, which conflicts with Netlify.
 export default defineConfig({
   plugins: [

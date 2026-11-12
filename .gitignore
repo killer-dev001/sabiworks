@@ -35,3 +35,8 @@ dist-ssr
 .netlify
 dist
 node_modules
+
+.env
+.netlify
+dist
+node_modules
